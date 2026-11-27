@@ -1,0 +1,63 @@
+{
+  "name": "@gilzero/temple-kit",
+  "version": "0.1.0",
+  "description": "Shared foundation modules for the temple-walk browser games",
+  "private": true,
+  "type": "module",
+  "license": "UNLICENSED",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gilzero/temple-kit.git"
+  },
+  "files": [
+    "src"
+  ],
+  "sideEffects": false,
+  "exports": {
+    "./altar-offerings": "./src/altar-offerings.ts",
+    "./building-tools": "./src/building-tools.ts",
+    "./carved-grid": "./src/carved-grid.ts",
+    "./chanting": "./src/chanting.ts",
+    "./floor-cushion": "./src/floor-cushion.ts",
+    "./giwa-roof": "./src/giwa-roof.ts",
+    "./guanyin-carving": "./src/guanyin-carving.ts",
+    "./guanyin-face": "./src/guanyin-face.ts",
+    "./hall-hangings": "./src/hall-hangings.ts",
+    "./logger": "./src/logger.ts",
+    "./maple-foliage": "./src/maple-foliage.ts",
+    "./movement-wheel": "./src/movement-wheel.ts",
+    "./novice-shadows": "./src/novice-shadows.ts",
+    "./orbit": "./src/orbit.ts",
+    "./path-lantern": "./src/path-lantern.ts",
+    "./practice": "./src/practice.ts",
+    "./prayer-strand": "./src/prayer-strand.ts",
+    "./ridge-carving": "./src/ridge-carving.ts",
+    "./roof-glaze": "./src/roof-glaze.ts",
+    "./scene-recovery": "./src/scene-recovery.ts",
+    "./seal-memory": "./src/seal-memory.ts",
+    "./sparrow-calls": "./src/sparrow-calls.ts",
+    "./stone-strip": "./src/stone-strip.ts",
+    "./storage": "./src/storage.ts",
+    "./timber-bench": "./src/timber-bench.ts",
+    "./tree-sparrow": "./src/tree-sparrow.ts",
+    "./walking-obstacles": "./src/walking-obstacles.ts",
+    "./weathered-plaster": "./src/weathered-plaster.ts"
+  },
+  "scripts": {
+    "test": "bun test",
+    "qc": "prettier --write . --cache && eslint . --fix --cache --max-warnings 0 && tsc --noEmit && bun test",
+    "qc:ci": "prettier --check . && eslint . --max-warnings 0 && tsc --noEmit && bun test"
+  },
+  "peerDependencies": {
+    "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.4.5",
+    "@types/three": "0.180.0",
+    "eslint": "^10.15.0",
+    "prettier": "^3.10.1",
+    "three": "0.180.0",
+    "typescript": "6",
+    "typescript-eslint": "^8.73.0"
+  }
+}

@@ -1,0 +1,5 @@
+# @file: .prettierignore
+# @desc: skip installed and locked files
+node_modules
+bun.lock
+.claude

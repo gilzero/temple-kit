@@ -1,0 +1,12 @@
+# @file: .gitignore
+# @desc: exclude installed and private files
+node_modules/
+.eslintcache
+.prettiercache
+*.tsbuildinfo
+*.log
+.env
+.env.*
+!.env.example
+.claude/settings.local.json
+.DS_Store
