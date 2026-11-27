@@ -5,7 +5,7 @@ Guidance for coding agents working on `@gilzero/temple-kit`.
 ## Purpose
 
 Shared, game-agnostic foundation modules for the temple-walk games in `/Users/apple/gilzero.dev/` (`kaiyuan`, `jing-an`, and later `xichan`).
-The games install the kit from GitHub (`github:gilzero/temple-kit#vX.Y.Z`). This is not a monorepo. Never add workspace links between repos.
+The games install the kit from GitHub (`git+ssh://git@github.com/gilzero/temple-kit.git#vX.Y.Z`; Bun fetches `github:` specs through the API tarball endpoint, which 404s for private repos). This is not a monorepo. Never add workspace links between repos.
 
 ## Rules
 
@@ -35,7 +35,7 @@ The games install the kit from GitHub (`github:gilzero/temple-kit#vX.Y.Z`). This
 1. Run `bun run qc`.
 2. Bump `version` in `package.json` (patch unless told otherwise).
 3. Commit, tag `vX.Y.Z`, and push both the branch and the tag.
-4. In each game run `bun add github:gilzero/temple-kit#vX.Y.Z`, then that game's `bun run qc`, `bun run smoke` and (Jing'an) `bun visual`.
+4. In each game run `bun add "git+ssh://git@github.com/gilzero/temple-kit.git#vX.Y.Z"`, then that game's `bun run qc`, `bun run smoke` and (Jing'an) `bun visual`.
 
 ## Adopting a module from a game
 

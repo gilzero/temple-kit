@@ -9,7 +9,7 @@ The kit ships TypeScript source. Vite and Bun compile it in the consuming game, 
 ## Install
 
 ```sh
-bun add github:gilzero/temple-kit#v0.1.0
+bun add "git+ssh://git@github.com/gilzero/temple-kit.git#v0.1.0"
 ```
 
 Import one module per path. Every module has its own `exports` entry so Vite only bundles what a game uses:
@@ -89,7 +89,7 @@ CI runs `bun run qc:ci` on pushes, tags and pull requests.
 
 1. Change the kit and run `bun run qc`.
 2. Bump `version` in `package.json`, commit, and tag `vX.Y.Z`.
-3. Push the commit and tag. Then run `bun add github:gilzero/temple-kit#vX.Y.Z` in each game.
+3. Push the commit and tag. Then run `bun add "git+ssh://git@github.com/gilzero/temple-kit.git#vX.Y.Z"` in each game.
 
 ## Private access
 
