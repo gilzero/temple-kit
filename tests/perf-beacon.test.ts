@@ -212,7 +212,7 @@ test("a failing environment stops the beacon without throwing", () => {
   const warnings: string[] = [];
   const { environment } = fakeEnvironment();
   const beacon = createPerfBeacon({
-    game: "temple",
+    game: "zen",
     build: "1.0.15",
     logger: { warn: (msg) => void warnings.push(msg) },
     random: () => 0,

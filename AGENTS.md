@@ -56,4 +56,4 @@ The games install the kit from GitHub (`git+ssh://git@github.com/gilzero/temple-
 | jing-an | `storage.ts`, `scene-recovery.ts`, `seal-memory.ts` |
 | xichan  | `perf.ts`                                           |
 | polin   | `perf.ts` (perf telemetry only)                     |
-| temple  | `perf.ts` (perf telemetry only)                     |
+| zen     | `perf.ts` (perf telemetry only)                     |
