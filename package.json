@@ -1,6 +1,6 @@
 {
   "name": "@gilzero/temple-kit",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Shared foundation modules for the temple-walk browser games",
   "private": true,
   "type": "module",
@@ -29,6 +29,9 @@
     "./novice-shadows": "./src/novice-shadows.ts",
     "./orbit": "./src/orbit.ts",
     "./path-lantern": "./src/path-lantern.ts",
+    "./perf-beacon": "./src/perf-beacon.ts",
+    "./perf-intake": "./src/perf-intake.ts",
+    "./perf-schema": "./src/perf-schema.ts",
     "./practice": "./src/practice.ts",
     "./prayer-strand": "./src/prayer-strand.ts",
     "./ridge-carving": "./src/ridge-carving.ts",
@@ -46,7 +49,8 @@
   "scripts": {
     "test": "bun test",
     "qc": "prettier --write . --cache && eslint . --fix --cache --max-warnings 0 && tsc --noEmit && bun test",
-    "qc:ci": "prettier --check . && eslint . --max-warnings 0 && tsc --noEmit && bun test"
+    "qc:ci": "prettier --check . && eslint . --max-warnings 0 && tsc --noEmit && bun test",
+    "perf:report": "bun scripts/perf-report.ts"
   },
   "peerDependencies": {
     "three": "^0.180.0"

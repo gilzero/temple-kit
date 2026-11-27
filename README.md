@@ -9,7 +9,7 @@ The kit ships TypeScript source. Vite and Bun compile it in the consuming game, 
 ## Install
 
 ```sh
-bun add "git+ssh://git@github.com/gilzero/temple-kit.git#v0.1.0"
+bun add "git+ssh://git@github.com/gilzero/temple-kit.git#v0.2.0"
 ```
 
 Import one module per path. Every module has its own `exports` entry so Vite only bundles what a game uses:
@@ -38,6 +38,9 @@ import { createPreferenceStore } from "@gilzero/temple-kit/storage";
 | `novice-shadows`    | ground the novice during practice           |
 | `orbit`             | orbit and zoom around walkers               |
 | `path-lantern`      | illuminate carved granite path lanterns     |
+| `perf-beacon`       | sample anonymous frame timing per visit     |
+| `perf-intake`       | store frame telemetry in Analytics Engine   |
+| `perf-schema`       | validate anonymous frame telemetry batches  |
 | `practice`          | time greetings and cushion practice         |
 | `prayer-strand`     | paint wooden prayer beads                   |
 | `ridge-carving`     | curve pierced ceramic ridge scrolls         |
@@ -95,3 +98,11 @@ CI runs `bun run qc:ci` on pushes, tags and pull requests.
 
 The repository is private. Each game's CI and its Cloudflare Workers Builds need a read-only token to install it.
 The game READMEs describe the `TEMPLE_KIT_TOKEN` setup.
+
+## Performance telemetry
+
+`perf-beacon` samples 25% of visits (`sampleRate`), skips visitors with Do Not Track or Global Privacy Control, and sends batches of at most 2 KB with `navigator.sendBeacon` when the page hides.
+A batch (schema `v: 1`, see `perf-schema.ts`) holds the game, build, renderer, browser family and major version, coarse device buckets and a language-region locale, plus up to 24 events: `session`, `load` (`first-frame`, `interactive`), `frames` (p50/p95 per 15 s window), `tier` and `context` (`lost`, `restored`). There are no user ids, IP addresses, agent strings or locations.
+
+Each game Worker answers `POST /api/perf` with `handlePerfIntake`, which writes one point per event to the Analytics Engine binding `PERF` (dataset `temple_walks_perf`, blob1 = game id).
+`bun run perf:report -- --days 7 [--game kaiyuan]` summarizes frame time, tiers, context losses and device classes. It reads `CLOUDFLARE_ACCOUNT_ID` and `CLOUDFLARE_API_TOKEN` (Account Analytics Read) from the environment.

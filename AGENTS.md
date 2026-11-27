@@ -24,6 +24,10 @@ The games install the kit from GitHub (`git+ssh://git@github.com/gilzero/temple-
 - Never swallow errors. A recoverable failure is reported through the injected `TempleLogger`.
 - Prettier defaults and `typescript-eslint` recommended rules.
 
+## Telemetry
+
+- `perf-*` modules must never send user ids, IPs, full agent strings or locations. Change the batch shape only by bumping `perfSchemaVersion`, and keep the intake strict (exact keys, enums, ranges, 2 KB cap).
+
 ## Checks
 
 - `bun run qc` formats, lints, type-checks and runs `bun test`.
@@ -50,3 +54,6 @@ The games install the kit from GitHub (`git+ssh://git@github.com/gilzero/temple-
 | :------ | :-------------------------------------------------- |
 | kaiyuan | `storage.ts`, `scene-recovery.ts`, `seal-memory.ts` |
 | jing-an | `storage.ts`, `scene-recovery.ts`, `seal-memory.ts` |
+| xichan  | `perf.ts`                                           |
+| polin   | `perf.ts` (perf telemetry only)                     |
+| temple  | `perf.ts` (perf telemetry only)                     |
